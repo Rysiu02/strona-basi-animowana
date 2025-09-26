@@ -1,0 +1,769 @@
+/* =========================================
+   RESET / GLOBALNE USTAWIENIA
+========================================= */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 200px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to right, gray, silver);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: linear-gradient(to right, silver, black);
+  color: #fff;
+  position: fixed;
+  padding: 0 2rem;
+  width: 100%;
+  height: 100px;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  margin-top: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.media {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.media a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+.media a span {
+  transition: color 0.3s ease;
+}
+.media a:hover span {
+  color: #ff4081;
+}
+.media img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+
+
+/* WhatsApp */
+.whatsapp {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 2000;
+}
+.whatsapp a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background: silver;
+  color: #fff;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.whatsapp img {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+}
+.whatsapp p {
+  margin-left: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  max-width: 0;
+  transition: all 0.3s ease-in-out;
+}
+.whatsapp a:hover p {
+  opacity: 1;
+  max-width: 200px;
+}
+
+
+
+/* Menu */
+.menu-btn {
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+nav {
+  display: none;
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background-image: radial-gradient(black, silver);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 10px 10px 10px #fff;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  margin: 0.75rem 0;
+}
+nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(to right, silver, black);
+  position: relative;
+  overflow: hidden;
+}
+nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: skewX(-25deg);
+}
+nav a:hover::before {
+  animation: shine 0.7s forwards;
+}
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+nav.active {
+  display: block;
+}
+
+/* =========================================
+   MAIN SECTIONS
+========================================= */
+main {
+  margin-top: 200px;
+  max-width: 100%;
+  white-space: normal;
+}
+.section-container {
+  width: auto;
+  max-width: calc(100% - 60px);
+  border-radius: 10px;
+  box-shadow: 5px 6px 20px rgba(0,0,0,0.3);
+  padding: 20px;
+  margin: 100px 30px;
+  box-sizing: border-box;
+}
+.section-title {
+  font-family: 'Updock', sans-serif;
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.section-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* =========================================
+   GALERIA
+========================================= */
+.galeria {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: 0 auto;
+  height: 600px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.slider-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 100%;
+  width: auto;
+  display: none;
+}
+.slider-container img.active {
+  display: block;
+  cursor: zoom-in;
+}
+
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+.thumbnails img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.thumbnails img.active {
+  opacity: 1;
+  border-color: #ff4081;
+}
+.thumbnails img:hover {
+  opacity: 1;
+}
+
+/* Slider buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(45deg, black, silver);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+.slider-btn:hover {
+  transform: translateY(-50%) scale(1.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  background: linear-gradient(45deg, silver, black);
+}
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+.slider-btn::before { content: ''; }
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+}
+.lightbox.active { display: flex; }
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.lightbox .close-btn {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.lightbox-prev, .lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  z-index: 1001;
+}
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+/* =========================================
+   KONTAKT
+========================================= */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 50px 30px;
+  justify-content: center;
+}
+.map-container, .form-container {
+  flex: 1 1 45%;
+  min-width: 300px;
+  border-radius: 10px;
+  box-shadow: 5px 6px 20px rgba(0,0,0,0.2);
+  padding: 20px;
+  box-sizing: border-box;
+}
+.map-container { display: flex; flex-direction: column; align-items: center; padding: 10px; }
+.map-title, .form-title { font-family: 'Updock', sans-serif; text-align: center; font-size: 2rem; font-weight: 600; margin-bottom: 10px; color: #fff; }
+.form-title { margin-bottom: 40px; }
+.contact-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+.contact-form label { display: block; margin-bottom: 5px; font-weight: bold; }
+.contact-form input, .contact-form textarea {
+  padding: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-form textarea { resize: none; min-height: 100px; }
+.contact-form button {
+  position: relative;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 0 auto;
+  cursor: pointer;
+  border: none;
+  background-image: linear-gradient(to right, silver, black);
+  color: #fff;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.contact-form button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-20deg);
+}
+.contact-form button:hover::before { left: 150%; transition: left 0.7s ease; }
+.contact-form button:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+
+/* Powrót na górę */
+.back-to-top-floating {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  z-index: 2000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.back-to-top-floating:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+
+/* =========================================
+   O MNIE
+========================================= */
+#omnie .omnie-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-wrap: nowrap;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 6px 20px rgba(0,0,0,0.2);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+#omnie .omnie-text {
+  flex: 1 1 60%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+}
+#omnie .omnie-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 1.1rem;
+}
+#omnie .omnie-photo {
+  flex: 0 0 35%;       /* zajmuje 35% szerokości kontenera */
+  min-width: 200px;
+  max-width: 350px;    /* opcjonalnie ogranicza maksymalną szerokość */
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+#omnie .omnie-photo img {
+  width: 100%;         /* obrazek wypełnia div */
+  height: auto;        /* proporcje zachowane */
+  border-radius: 10px;
+  display: block;
+}
+
+.stick img {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  display: flex;
+}
+
+/* =========================================
+   USŁUGI
+========================================= */
+#usluga .uslugi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+#usluga .usluga-item {
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 5px 6px 20px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#usluga .usluga-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+#usluga .usluga-title {
+  font-family: 'Updock', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: #fff;
+  text-align: center;
+  font-weight: normal;
+}
+#usluga .usluga-item p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* Sekcja-box */
+.section-box {
+  border-radius: 10px;
+  box-shadow: 5px 6px 20px rgba(0,0,0,0.3);
+  padding: 20px;
+  margin: 20px auto 0 auto;
+  max-width: 800px;
+}
+
+
+/* =========================================
+   RESPONSYWNOŚĆ
+========================================= */
+@media (max-width: 1000px) {
+  .media a span { display: none; }
+}
+
+@media (max-width: 800px) {
+  .section-content, .contact-container { flex-direction: column; }
+  .slider-btn { font-size: 1.5rem; padding: 0.3rem 0.6rem; bottom: 10px; transform: none; }
+  .slider-btn.prev { left: 10px; }
+  .slider-btn.next { right: 10px; }
+  #omnie .omnie-container { flex-direction: column; padding: 15px 20px; }
+  #omnie .omnie-photo { width: 100%; min-height: 300px; background-position: center center; margin-left: 0; margin-bottom: 15px; border-radius: 10px; }
+  #omnie .omnie-text { width: 100%; max-width: 100%; margin-bottom: 0; }
+  #usluga .uslugi-grid { grid-template-columns: 1fr; gap: 15px; }
+  #usluga .usluga-title { font-size: 1.8rem; }
+  .section-box { max-width: 95%; padding: 15px; }
+}
+
+/* =========================================
+   DODATKOWA RESPONSYWNOŚĆ - TELEFONY
+========================================= */
+@media (max-width: 600px) {
+
+  body {
+    overflow-x: hidden; /* blokada poziomego scrolla */
+  }
+
+  header {
+    height: 70px;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    margin-top: 70px;
+  }
+  .logo img {
+    width: 100px;
+    height: 100px;
+  }
+
+  main {
+    margin-top: 150px;
+  }
+
+  /* Sekcje */
+  .section-container {
+    max-width: 100%;
+    margin: 40px 10px;
+    padding: 15px;
+  }
+
+  .section-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Galeria */
+  .galeria {
+    height: auto;
+  }
+  .slider-container img {
+    max-width: 100%;
+    height: auto;
+    position: static;
+    transform: none;
+    display: block;
+    margin: 0 auto;
+  }
+  .thumbnails img {
+    width: 60px;
+    height: 45px;
+  }
+
+  /* Kontakt */
+  .contact-container {
+    flex-direction: column;
+    margin: 20px 10px;
+  }
+  .map-container, .form-container {
+    min-width: auto;
+    width: 100%;
+  }
+
+  /* O mnie */
+  #omnie .omnie-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+  #omnie .omnie-photo {
+    width: 100%;
+    min-height: 250px;
+  }
+  #omnie .omnie-text {
+    padding: 10px;
+  }
+
+  /* Usługi */
+  #usluga .uslugi-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Stopka */
+  .site-footer {
+    font-size: 12px;
+    padding: 15px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  /* Naprawa slidera / galerii */
+  .galeria {
+    height: auto;              /* automatyczna wysokość */
+  }
+
+  .slider-container {
+    position: relative;
+  }
+
+  .slider-container img {
+    position: relative;         /* zamiast absolute */
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;                /* zdjęcie na pełną szerokość */
+    height: auto;               /* proporcje zachowane */
+    display: none;              /* nadal ukrywamy */
+  }
+
+  .slider-container img.active {
+    display: block;             /* pokazujemy tylko aktywne */
+  }
+
+  .slider-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .thumbnails {
+    gap: 5px;
+  }
+
+  .thumbnails img {
+    width: 50px;
+    height: 35px;
+  }
+}
+
+/* cookies.html - dodatkowe dopasowania */
+
+.section-box {
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 5px 6px 20px rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.05); /* lekki kontrast dla czytelności */
+}
+
+
+@media (max-width: 600px) {
+  /* Media na lewą stronę */
+  .media {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  /* MENU */
+  nav {
+    display: none; /* domyślnie ukryte */
+    position: fixed;
+    top: 100px;
+    right: 10px;
+    background-image: radial-gradient(black, silver);
+    color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    z-index: 9998;
+  }
+  nav.active {
+    display: block;
+  }
+
+  /* WhatsApp */
+  .whatsapp {
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 2000;
+  }
+  .whatsapp a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: silver;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    pointer-events: auto;
+  }
+  .whatsapp p {
+    opacity: 0;
+    max-width: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s ease-in-out, max-width 0.3s ease-in-out;
+    margin-left: 10px;
+  }
+  .whatsapp.show-text p {
+    opacity: 1;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cookie-modal {
+    align-items: flex-end;      /* przesuwa modal do dołu ekranu */
+    padding-bottom: 20px;       /* odrobinę luzu od dolnej krawędzi */
+  }
+
+  .cookie-content {
+    width: 90%;                 /* nie zajmuje całej szerokości */
+    max-width: 400px;
+    border-radius: 12px;
+    padding: 20px;
+  }
+}
+
+

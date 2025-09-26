@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polityka Cookies - Black Moon Nails</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+  <header>
+  <div class="logo">
+    <img src="./grafika/logo.jpeg" alt="logo">
+  </div>
+</header>
+
+<main>
+ <h1 class="section-title">Polityka cookies</h1>
+<div class="section-box">
+  <p>
+    Ta strona korzysta z plików cookies, aby zapewnić Ci jak najlepsze doświadczenie podczas
+    przeglądania naszego serwisu. Pliki cookies pomagają nam zapamiętać Twoje preferencje,
+    utrzymać sesję użytkownika oraz analizować ruch na stronie, aby poprawiać jej funkcjonalność.
+  </p>
+  <p>
+    Pliki cookies wykorzystywane są wyłącznie w celach technicznych i statystycznych. Nie
+    używamy danych osobowych do celów reklamowych ani nie udostępniamy ich osobom trzecim.
+  </p>
+  <p>
+    Możesz w każdej chwili zmienić ustawienia przeglądarki, aby blokować lub usuwać pliki
+    cookies. Korzystając dalej z naszej strony, wyrażasz zgodę na stosowanie cookies.
+  </p>
+  
+  <div style="text-align:center; margin-top:20px;">
+    <a href="index.html" class="shine-btn">Wróć na stronę główną</a>
+  </div>
+</div>
+</main>
+
+
+  <footer class="site-footer">
+    <p>
+      Black Moon Nails <br>
+      Studio Paznokci <br>
+      • <br>
+      powered by
+      <a href="https://www.facebook.com/krzysztof.glicner" target="_blank">
+        Krzysztof Glicner
+        <img src="./grafika/fb.png" alt="Ikona" class="footer-icon">
+      </a> 2025-<span id="currentYear"></span> <br>
+      All rights reserved
+    </p>
+  </footer>
+
+  <script>
+  const yearSpan = document.getElementById("currentYear");
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
