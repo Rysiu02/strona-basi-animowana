@@ -557,6 +557,7 @@ main {
   body {
     overflow-x: hidden; /* blokada poziomego scrolla */
     box-sizing: border-box;
+    max-width: 600px
   }
 
   header {
