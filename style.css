@@ -772,12 +772,3 @@ main {
     padding: 20px;
   }
 }
-
-@media (max-width: 600px) {
-  .logo {
-    position: relative;
-    margin: 0 auto;
-    left: auto;
-    transform: none;
-  }
-}
