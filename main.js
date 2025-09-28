@@ -368,3 +368,12 @@ document.querySelectorAll('nav a[href^="#"]').forEach(link => {
     }
   });
 });
+
+function ustawVh() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Ustaw przy starcie i przy zmianie rozmiaru ekranu
+window.addEventListener('resize', ustawVh);
+ustawVh();

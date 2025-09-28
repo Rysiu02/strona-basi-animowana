@@ -584,15 +584,15 @@ main {
     padding: 15px;
   }
 
+  .section-container, .galeria {
+  height: calc(var(--vh, 1vh) * 100);
+}
   .section-content {
     flex-direction: column;
     gap: 15px;
   }
 
-  /* Galeria */
-  .galeria {
-    height: auto;
-  }
+
   .slider-container img {
     max-width: 100%;
     height: auto;
