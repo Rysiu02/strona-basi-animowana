@@ -3,6 +3,7 @@
 ========================================= */
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
@@ -533,10 +534,18 @@ main {
    RESPONSYWNOŚĆ
 ========================================= */
 @media (max-width: 1000px) {
+
+  html {
+  scroll-behavior: smooth;
+}
   .media a span { display: none; }
 }
 
 @media (max-width: 800px) {
+  
+  html {
+  scroll-behavior: smooth;
+}
   .section-content, .contact-container { flex-direction: column; }
   .slider-btn { font-size: 1.5rem; padding: 0.3rem 0.6rem; bottom: 10px; transform: none; }
   .slider-btn.prev { left: 10px; }
@@ -553,6 +562,10 @@ main {
    DODATKOWA RESPONSYWNOŚĆ - TELEFONY
 ========================================= */
 @media (max-width: 600px) {
+
+  html {
+  scroll-behavior: smooth;
+}
 
   body {
     overflow-x: hidden; /* blokada poziomego scrolla */
