@@ -8,11 +8,10 @@
 html {
   scroll-padding-top: 200px;
   max-width: 100%;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  max-width: 100%;
   margin: 0;
   padding: 0;
   background-image: linear-gradient(to right, gray, silver);
@@ -33,12 +32,11 @@ header {
   background-image: linear-gradient(to right, silver, black);
   color: #fff;
   position: fixed;
-  /* padding: 0 2rem; */
+  padding: 0 2rem;
   width: 100%;
   height: 100px;
   top: 0;
   z-index: 1000;
-  box-sizing: border-box;
 }
 
 .logo {
@@ -189,12 +187,12 @@ main {
   white-space: normal;
 }
 .section-container {
-  width: 100%;
+  width: auto;
   max-width: calc(100% - 60px);
   border-radius: 10px;
   box-shadow: 5px 6px 20px rgba(0,0,0,0.3);
   padding: 20px;
-  margin: 100px auto;
+  margin: 100px 30px;
   box-sizing: border-box;
 }
 .section-title {
@@ -562,7 +560,7 @@ main {
 
   header {
     height: 70px;
-    /* padding: 0 1rem; */
+    padding: 0 1rem;
     width: 100%;
     box-sizing: border-box;
   }
@@ -582,7 +580,7 @@ main {
   /* Sekcje */
   .section-container {
     max-width: 100%;
-    margin: 40px auto;
+    margin: 40px 10px;
     padding: 15px;
   }
 
@@ -772,138 +770,4 @@ main {
     border-radius: 12px;
     padding: 20px;
   }
-}
-
-/* =========================================
-   RESPONSYWNOŚĆ
-========================================= */
-
-/* Duże ekrany - tablet/desktop */
-@media (max-width: 1000px) {
-  .media a span { display: none; }
-}
-
-/* Średnie ekrany - tablet mniejszy / duże telefony */
-@media (max-width: 800px) {
-  .section-content, 
-  .contact-container { flex-direction: column; }
-
-  .slider-btn { font-size: 1.5rem; padding: 0.3rem 0.6rem; transform: none; }
-  .slider-btn.prev { left: 10px; }
-  .slider-btn.next { right: 10px; }
-
-  #omnie .omnie-container { flex-direction: column; padding: 15px 20px; }
-  #omnie .omnie-photo { width: 100%; min-height: 300px; margin-left: 0; margin-bottom: 15px; }
-  #omnie .omnie-text { width: 100%; max-width: 100%; margin-bottom: 0; }
-
-  #usluga .uslugi-grid { grid-template-columns: 1fr; gap: 15px; }
-  #usluga .usluga-title { font-size: 1.8rem; }
-
-  .section-box { max-width: 95%; padding: 15px; }
-}
-
-/* Małe ekrany - telefony */
-@media (max-width: 600px) {
-  body {
-    overflow-x: hidden;
-    box-sizing: border-box;
-  }
-
-  header {
-    height: 70px;
-    padding: 0 1rem;
-    width: 100%;
-  }
-
-  .logo {
-    margin-top: 70px;
-  }
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-
-  main { margin-top: 150px; }
-
-  .section-container {
-    max-width: 100%;
-    margin: 40px 10px;
-    padding: 15px;
-  }
-  .section-content { flex-direction: column; gap: 15px; }
-
-  /* Galeria */
-  .galeria { height: auto; }
-  .slider-container { position: relative; }
-  .slider-container img {
-    position: relative;
-    top: auto;
-    left: auto;
-    transform: none;
-    width: 100%;
-    height: auto;
-    display: none;
-    margin: 0 auto;
-  }
-  .slider-container img.active { display: block; }
-  .slider-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  .thumbnails { gap: 5px; }
-  .thumbnails img { width: 50px; height: 35px; }
-
-  /* Kontakt */
-  .contact-container { flex-direction: column; margin: 20px 10px; }
-  .map-container, .form-container { min-width: auto; width: 100%; }
-
-  /* O mnie */
-  #omnie .omnie-container { flex-direction: column; padding: 15px; }
-  #omnie .omnie-photo { width: 100%; min-height: 250px; }
-  #omnie .omnie-text { padding: 10px; }
-
-  /* Usługi */
-  #usluga .uslugi-grid { grid-template-columns: 1fr; gap: 15px; }
-
-  /* Stopka */
-  .site-footer { font-size: 12px; padding: 15px 10px; }
-
-  /* Media social */
-  .media {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    justify-content: flex-start;
-  }
-
-  /* Menu */
-  nav {
-    display: none;
-    position: fixed;
-    top: 100px;
-    right: 10px;
-    background-image: radial-gradient(black, silver);
-    color: white;
-    padding: 1rem;
-    border-radius: 10px;
-    z-index: 9998;
-  }
-  nav.active { display: block; }
-
-  /* WhatsApp */
-  .whatsapp {
-    left: 10px;
-    bottom: 20px;
-  }
-  .whatsapp a { pointer-events: auto; }
-  .whatsapp p { opacity: 0; max-width: 0; }
-  .whatsapp.show-text p { opacity: 1; max-width: 200px; }
-
-  /* Cookies */
-  .cookie-modal { align-items: flex-end; padding-bottom: 20px; }
-  .cookie-content { width: 90%; max-width: 400px; border-radius: 12px; padding: 20px; }
 }
