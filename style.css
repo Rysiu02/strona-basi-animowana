@@ -7,6 +7,8 @@
 
 html {
   scroll-padding-top: 200px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -17,6 +19,7 @@ body {
   font-family: Arial, sans-serif;
   width: 100%;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* =========================================
@@ -34,6 +37,7 @@ header {
   height: 100px;
   top: 0;
   z-index: 1000;
+  overflow: hidden;
 }
 
 .logo {
@@ -770,34 +774,10 @@ main {
 }
 
 @media (max-width: 600px) {
-  header {
-    width: 100%;              /* nie szerszy niż ekran */
-    padding: 0 10px;          /* mniejszy padding */
-    overflow-x: hidden;       /* chowa nadmiar w poziomie */
-    box-sizing: border-box;   /* padding wliczony do szerokości */
-  }
-
   .logo {
-    position: relative;       /* usuwa przesunięcie absolutne */
-    margin: 0 auto;           /* centruje */
-    transform: none;
-    top: auto;
+    position: relative;
+    margin: 0 auto;
     left: auto;
-  }
-
-  .logo img {
-    max-width: 80px;          /* mniejsze logo */
-    height: auto;
-  }
-
-  .media {
-    gap: 10px;                /* mniejszy odstęp ikon */
-    flex-wrap: nowrap;        /* żeby nie rozpychało */
-  }
-
-  .menu-btn {
-    margin-left: 10px;        /* zmniejszony margines */
+    transform: none;
   }
 }
-
-
