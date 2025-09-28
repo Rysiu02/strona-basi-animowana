@@ -352,4 +352,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
 
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const y = target.getBoundingClientRect().top + window.pageYOffset - 70; 
+      // -70 = wysokość menu (dopasuj do swojego)
+      
+      window.scrollTo({
+        top: y,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
