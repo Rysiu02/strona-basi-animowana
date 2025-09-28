@@ -769,4 +769,35 @@ main {
   }
 }
 
+@media (max-width: 600px) {
+  header {
+    width: 100%;              /* nie szerszy niż ekran */
+    padding: 0 10px;          /* mniejszy padding */
+    overflow-x: hidden;       /* chowa nadmiar w poziomie */
+    box-sizing: border-box;   /* padding wliczony do szerokości */
+  }
+
+  .logo {
+    position: relative;       /* usuwa przesunięcie absolutne */
+    margin: 0 auto;           /* centruje */
+    transform: none;
+    top: auto;
+    left: auto;
+  }
+
+  .logo img {
+    max-width: 80px;          /* mniejsze logo */
+    height: auto;
+  }
+
+  .media {
+    gap: 10px;                /* mniejszy odstęp ikon */
+    flex-wrap: nowrap;        /* żeby nie rozpychało */
+  }
+
+  .menu-btn {
+    margin-left: 10px;        /* zmniejszony margines */
+  }
+}
+
 
