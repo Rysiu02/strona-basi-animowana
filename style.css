@@ -557,6 +557,7 @@ main {
   header {
     height: 70px;
     padding: 0 1rem;
+    width: 100%;
   }
 
   .logo {
