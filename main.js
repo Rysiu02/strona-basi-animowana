@@ -352,3 +352,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Pobieramy wszystkie linki, które przewijają do sekcji (#id)
+const links = document.querySelectorAll('a[href^="#"]');
+
+links.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault(); // zatrzymujemy domyślne przewijanie
+
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    if (targetElement) {
+      // Płynne przewijanie do elementu
+      targetElement.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' // możesz zmienić na 'center' lub 'end'
+      });
+    }
+  });
+});
