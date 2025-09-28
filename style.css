@@ -187,12 +187,12 @@ main {
   white-space: normal;
 }
 .section-container {
-  width: auto;
+  width: 100%;
   max-width: calc(100% - 60px);
   border-radius: 10px;
   box-shadow: 5px 6px 20px rgba(0,0,0,0.3);
   padding: 20px;
-  margin: 100px 30px;
+  margin: 100px auto;
   box-sizing: border-box;
 }
 .section-title {
@@ -580,7 +580,7 @@ main {
   /* Sekcje */
   .section-container {
     max-width: 100%;
-    margin: 40px 10px;
+    margin: 40px auto;
     padding: 15px;
   }
 
