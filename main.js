@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Pobieramy wszystkie linki, które przewijają do sekcji (#id)
+// Globalne płynne przewijanie dla wszystkich linków wewnętrznych
 const links = document.querySelectorAll('a[href^="#"]');
 
 links.forEach(link => {
@@ -366,8 +366,9 @@ links.forEach(link => {
       // Płynne przewijanie do elementu
       targetElement.scrollIntoView({ 
         behavior: 'smooth', 
-        block: 'start' // możesz zmienić na 'center' lub 'end'
+        block: 'start' // można zmienić na 'center' lub 'end'
       });
     }
   });
 });
+
